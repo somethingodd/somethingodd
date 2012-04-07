@@ -1,0 +1,15 @@
+[submodule "odditem"]
+	path = odditem
+	url = git@github.com:somethingodd/odditem.git
+[submodule "oddgive"]
+	path = oddgive
+	url = git@github.com:somethingodd/oddgive.git
+[submodule "oddlight"]
+	path = oddlight
+	url = git@github.com:somethingodd/oddlight.git
+[submodule "oddtransport"]
+	path = oddtransport
+	url = git@github.com:somethingodd/oddtransport.git
+[submodule "oddshop"]
+	path = oddshop
+	url = git@github.com:somethingodd/oddshop.git
