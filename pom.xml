@@ -115,13 +115,6 @@
                             </goals>
                         </execution>
                     </executions>
-                    <dependencies>
-                        <dependency>
-                            <groupId>org.apache.maven.wagon</groupId>
-                            <artifactId>wagon-ssh-external</artifactId>
-                            <version>2.2</version>
-                        </dependency>
-                    </dependencies>
                 </plugin>
             </plugins>
         </pluginManagement>
@@ -169,7 +162,7 @@
         </snapshotRepository>
         <site>
             <id>somethingodd-site</id>
-            <url>${scp.root}</url>
+            <url>file:///var/www/somethingodd.info/</url>
         </site>
     </distributionManagement>
     <ciManagement>
@@ -214,14 +207,13 @@
         <mockito.version>1.9.0</mockito.version>
         <powermock.version>1.4.11</powermock.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <scp.root>scpexe://somethingodd.info/var/www/somethingodd.info/</scp.root>
         <url.ci>${url.root}jenkins/</url.ci>
-        <url.dav>${scp.root}${project.name}-${project.version}</url.dav>
         <url.gpl3>https://www.gnu.org/licenses/gpl-3.0-standalone.html</url.gpl3>
         <url.repo>${url.root}nexus/</url.repo>
         <url.repo.download>${url.repo}content/groups/public/</url.repo.download>
         <url.repo.release>${url.repo}content/repositories/releases/</url.repo.release>
         <url.repo.snapshot>${url.repo}content/repositories/snapshots/</url.repo.snapshot>
         <url.root>http://somethingodd.info/</url.root>
+        <url.site>file:///var/www/somethingodd.info/${project.name}-${project.version}/</url.site>
     </properties>
 </project>
