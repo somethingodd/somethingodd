@@ -213,7 +213,7 @@
         <powermock.version>1.4.11</powermock.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <!--<url.dav>dav:${url.root}/${project.name}-${project.version}/</url.dav>-->
-        <url.dav>file:///var/www/somethingodd.info/</url.dav>
+        <url.dav>dav:http://somethingodd.info/${project.name}</url.dav>
         <url.gpl3>https://www.gnu.org/licenses/gpl-3.0-standalone.html</url.gpl3>
         <url.repo.download>http://repo.somethingodd.info/content/groups/somethingodd/</url.repo.download>
         <url.repo.release>http://repo.somethingodd.info/content/repositories/releases/</url.repo.release>
