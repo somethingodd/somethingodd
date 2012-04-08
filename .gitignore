@@ -1,4 +1,7 @@
+# IntelliJ IDEA
 *.iml
 *.ipr
 *.iws
-target/
+
+# Maven build files
+/target
