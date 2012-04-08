@@ -58,71 +58,73 @@
         </plugins>
     </reporting>
     <build>
-        <plugins>
-            <plugin>
-                <inherited>true</inherited>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-javadoc-plugin</artifactId>
-                <version>2.8</version>
-                <executions>
-                    <execution>
-                        <id>attach-javadocs</id>
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <detectLinks>false</detectLinks>
-                    <level>public</level>
-                    <linksource>true</linksource>
-                    <links>
-                        <link>http://jd.bukkit.org/apidocs</link>
-                        <link>https://commons.apache.org/collections/api-release</link>
-                    </links>
-                </configuration>
-            </plugin>
-            <plugin>
-                <inherited>true</inherited>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.11</version>
-                <configuration>
-                    <useFile>false</useFile>
-                </configuration>
-            </plugin>
-            <plugin>
-                <inherited>true</inherited>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>2.3.2</version>
-                <configuration>
-                    <source>1.6</source>
-                    <target>1.6</target>
-                </configuration>
-            </plugin>
-            <plugin>
-                <inherited>true</inherited>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-site-plugin</artifactId>
-                <version>3.0</version>
-                <executions>
-                    <execution>
-                        <id>attach-descriptor</id>
-                        <goals>
-                            <goal>attach-descriptor</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-        <extensions>
-            <extension>
-                <groupId>org.apache.maven.wagon</groupId>
-                <artifactId>wagon-webdav-jackrabbit</artifactId>
-                <version>2.2</version>
-            </extension>
-        </extensions>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <inherited>true</inherited>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-javadoc-plugin</artifactId>
+                    <version>2.8</version>
+                    <executions>
+                        <execution>
+                            <id>attach-javadocs</id>
+                            <goals>
+                                <goal>jar</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                    <configuration>
+                        <detectLinks>false</detectLinks>
+                        <level>public</level>
+                        <linksource>true</linksource>
+                        <links>
+                            <link>http://jd.bukkit.org/apidocs</link>
+                            <link>https://commons.apache.org/collections/api-release</link>
+                        </links>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <inherited>true</inherited>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>2.11</version>
+                    <configuration>
+                        <useFile>false</useFile>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <inherited>true</inherited>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>2.3.2</version>
+                    <configuration>
+                        <source>1.6</source>
+                        <target>1.6</target>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <inherited>true</inherited>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-site-plugin</artifactId>
+                    <version>3.0</version>
+                    <executions>
+                        <execution>
+                            <id>attach-descriptor</id>
+                            <goals>
+                                <goal>attach-descriptor</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                    <dependencies>
+                        <dependency>
+                            <groupId>org.apache.maven.wagon</groupId>
+                            <artifactId>wagon-ssh-external</artifactId>
+                            <version>2.2</version>
+                        </dependency>
+                    </dependencies>
+                </plugin>
+            </plugins>
+        </pluginManagement>
     </build>
     <dependencies>
         <dependency>
@@ -166,8 +168,8 @@
             <url>${url.repo.snapshot}</url>
         </snapshotRepository>
         <site>
-            <id>somethingodd.info</id>
-            <url>${url.dav}</url>
+            <id>somethingodd-site</id>
+            <url>${scp.root}</url>
         </site>
     </distributionManagement>
     <ciManagement>
@@ -212,12 +214,14 @@
         <mockito.version>1.9.0</mockito.version>
         <powermock.version>1.4.11</powermock.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <!--<url.dav>dav:${url.root}/${project.name}-${project.version}/</url.dav>-->
-        <url.dav>file:///var/www/somethingodd.info/${project.name}-${project-version}</url.dav>
+        <scp.root>scpexe://somethingodd.info/var/www/somethingodd.info/</scp.root>
+        <url.ci>${url.root}jenkins/</url.ci>
+        <url.dav>${scp.root}${project.name}-${project.version}</url.dav>
         <url.gpl3>https://www.gnu.org/licenses/gpl-3.0-standalone.html</url.gpl3>
-        <url.repo.download>http://repo.somethingodd.info/content/groups/somethingodd/</url.repo.download>
-        <url.repo.release>http://repo.somethingodd.info/content/repositories/releases/</url.repo.release>
-        <url.repo.snapshot>http://repo.somethingodd.info/content/repositories/snapshots/</url.repo.snapshot>
+        <url.repo>${url.root}nexus/</url.repo>
+        <url.repo.download>${url.repo}content/groups/public/</url.repo.download>
+        <url.repo.release>${url.repo}content/repositories/releases/</url.repo.release>
+        <url.repo.snapshot>${url.repo}content/repositories/snapshots/</url.repo.snapshot>
         <url.root>http://somethingodd.info/</url.root>
     </properties>
 </project>
