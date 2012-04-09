@@ -115,6 +115,33 @@
                             </goals>
                         </execution>
                     </executions>
+                    <configuration>
+                        <reportPlugins>
+                            <plugin>
+                                <groupId>org.apache.maven.plugins</groupId>
+                                <artifactId>maven-project-info-reports-plugin</artifactId>
+                                <version>2.4</version>
+                                <reportSets>
+                                    <reportSet>
+                                        <reports>
+                                            <report>cim</report>
+                                            <report>dependencies</report>
+                                            <report>dependency-convergence</report>
+                                            <report>dependency-management</report>
+                                            <report>index</report>
+                                            <report>issue-tracking</report>
+                                            <report>license</report>
+                                            <report>plugin-management</report>
+                                            <report>plugins</report>
+                                            <report>project-team</report>
+                                            <report>scm</report>
+                                            <report>summary</report>
+                                        </reports>
+                                    </reportSet>
+                                </reportSets>
+                            </plugin>
+                        </reportPlugins>
+                    </configuration>
                 </plugin>
             </plugins>
         </pluginManagement>
@@ -167,7 +194,7 @@
     </distributionManagement>
     <ciManagement>
         <system>jenkins</system>
-        <url>http://ci.somethingodd.info</url>
+        <url>http://somethingodd.info/jenkins/</url>
     </ciManagement>
     <scm>
         <developerConnection>scm:git:git@github.com:somethingodd/${project.name}.git</developerConnection>
@@ -207,13 +234,11 @@
         <mockito.version>1.9.0</mockito.version>
         <powermock.version>1.4.11</powermock.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <url.ci>${url.root}jenkins/</url.ci>
         <url.gpl3>https://www.gnu.org/licenses/gpl-3.0-standalone.html</url.gpl3>
         <url.repo>${url.root}nexus/</url.repo>
         <url.repo.download>${url.repo}content/groups/public/</url.repo.download>
         <url.repo.release>${url.repo}content/repositories/releases/</url.repo.release>
         <url.repo.snapshot>${url.repo}content/repositories/snapshots/</url.repo.snapshot>
         <url.root>http://somethingodd.info/</url.root>
-        <url.site>file:///var/www/somethingodd.info/${project.name}-${project.version}/</url.site>
     </properties>
 </project>
