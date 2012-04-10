@@ -4,7 +4,7 @@
     <inceptionYear>2011</inceptionYear>
     <groupId>info.somethingodd</groupId>
     <artifactId>somethingodd-parent</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1-SNAPSHOT</version>
     <name>somethingodd-parent</name>
     <url>${url.root}</url>
     <packaging>pom</packaging>
