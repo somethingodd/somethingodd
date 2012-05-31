@@ -4,7 +4,7 @@
     <inceptionYear>2011</inceptionYear>
     <groupId>info.somethingodd</groupId>
     <artifactId>somethingodd-parent</artifactId>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>1.0.1</version>
     <name>somethingodd-parent</name>
     <url>${url.root}</url>
     <packaging>pom</packaging>
@@ -16,6 +16,7 @@
         <module>oddlight</module>
         <module>oddshop</module>
         <module>oddtransport</module>
+	<module>stained</module>
     </modules>
     <build>
         <pluginManagement>
@@ -207,7 +208,9 @@
         </dependency>
     </dependencies>
     <properties>
-        <bukkit.version>1.2.5-R1.1</bukkit.version>
+        <bukkit.version>1.2.5-R3.0</bukkit.version>
+        <spout.version>dev-SNAPSHOT</spout.version>
+        <vanilla.version>${spout.version}</vanilla.version>
         <junit.version>4.10</junit.version>
         <mockito.version>1.9.0</mockito.version>
         <powermock.version>1.4.11</powermock.version>

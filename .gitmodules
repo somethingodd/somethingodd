@@ -19,3 +19,6 @@
 [submodule "oddity"]
 	path = oddity
 	url = git@github.com:somethingodd/oddity.git
+[submodule "stained"]
+	path = stained
+	url = git@github.com:somethingodd/stained.git
