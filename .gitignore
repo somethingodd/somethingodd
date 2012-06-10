@@ -1,7 +1,11 @@
+buqt/
+foreach.sh
+thirdparty/
+
 # IntelliJ IDEA
 *.iml
 *.ipr
 *.iws
 
 # Maven build files
-/target
+target/

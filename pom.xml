@@ -3,20 +3,20 @@
     <modelVersion>4.0.0</modelVersion>
     <inceptionYear>2011</inceptionYear>
     <groupId>info.somethingodd</groupId>
-    <artifactId>somethingodd-parent</artifactId>
-    <version>1.0.1</version>
-    <name>somethingodd-parent</name>
+    <artifactId>parent</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <name>parent</name>
     <url>${url.root}</url>
     <packaging>pom</packaging>
     <modules>
-        <module>oddedit</module>
+        <module>common</module>
         <module>oddgive</module>
         <module>odditem</module>
-        <module>oddity</module>
         <module>oddlight</module>
         <module>oddshop</module>
         <module>oddtransport</module>
-	<module>stained</module>
+        <module>server</module>
+        <module>stained</module>
     </modules>
     <build>
         <pluginManagement>
@@ -183,6 +183,21 @@
             <version>${bukkit.version}</version>
         </dependency>
         <dependency>
+            <groupId>org.getspout</groupId>
+            <artifactId>spoutplugin</artifactId>
+            <version>${spout.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.spout</groupId>
+            <artifactId>spoutapi</artifactId>
+            <version>${spout.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.spout</groupId>
+            <artifactId>vanilla</artifactId>
+            <version>${vanilla.version}</version>
+        </dependency>
+        <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.10</version>
@@ -206,15 +221,21 @@
             <version>${powermock.version}</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>info.somethingodd</groupId>
+            <artifactId>odditem</artifactId>
+            <version>0.9.6-SNAPSHOT</version>
+        </dependency>
     </dependencies>
     <properties>
-        <bukkit.version>1.2.5-R3.0</bukkit.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <bukkit.version>1.2.5-R4.0</bukkit.version>
         <spout.version>dev-SNAPSHOT</spout.version>
         <vanilla.version>${spout.version}</vanilla.version>
         <junit.version>4.10</junit.version>
         <mockito.version>1.9.0</mockito.version>
+        <odditem.version>1.0.0-SNAPSHOT</odditem.version>
         <powermock.version>1.4.11</powermock.version>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <url.gpl3>https://www.gnu.org/licenses/gpl-3.0-standalone.html</url.gpl3>
         <url.repo>${url.root}nexus/</url.repo>
         <url.repo.download>${url.repo}content/groups/public/</url.repo.download>

@@ -13,12 +13,12 @@
 [submodule "oddshop"]
 	path = oddshop
 	url = git@github.com:somethingodd/oddshop.git
-[submodule "oddedit"]
-	path = oddedit
-	url = git@github.com:somethingodd/oddedit.git
-[submodule "oddity"]
-	path = oddity
-	url = git@github.com:somethingodd/oddity.git
 [submodule "stained"]
 	path = stained
 	url = git@github.com:somethingodd/stained.git
+[submodule "common"]
+	path = common
+	url = git@github.com:somethingodd/common.git
+[submodule "server"]
+	path = server
+	url = git@github.com:somethingodd/server.git
