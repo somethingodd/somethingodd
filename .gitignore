@@ -6,6 +6,7 @@ thirdparty/
 *.iml
 *.ipr
 *.iws
+.idea
 
 # Maven build files
 target/
